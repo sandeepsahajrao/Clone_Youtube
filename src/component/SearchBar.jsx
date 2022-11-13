@@ -7,13 +7,17 @@ import { Navigate } from 'react-router-dom';
 
 const SearchBar = () => {
     return (
-        <Paper component='form' onSubmit={()=>{}}
-            sx={{
+        <Paper component='form' onSubmit={()=>{} }
+        sx={{
+                display:'flex',
                 borderRadius: 20,
                 border: '1px solid #e3e3e3',
                 pl: 2,
                 boxShadow: 'none',
+                justifyContent:'center',
+                alignItem:'center',
                 mr: { sm: 5 },
+                height:'30px'
             }}>
             <input className='searchBar' onChange={() => { }} placeholder="search...." value='' />
 

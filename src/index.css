@@ -43,9 +43,9 @@ a {
 .searchBar{
   border:none;
   outline:none;
-  width:350px;
+  width:300px;
   border-radius: 20px;
-  /* height: 10px; */
+ 
   padding-left: 10px;
 }
 .searchBar::placeholder{
@@ -68,6 +68,24 @@ a {
   margin: 10px 0px;
   border-radius: 20px;
   transition: all 0.3s ease;
+  
+}
+
+.css-11d36y0{
+  overflow: auto;
+  height: auto;
+}
+
+.subscribe {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.css-s7pokm-MuiStack-root{
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 /* .copyRight{
   font-weight: 500;
@@ -77,6 +95,7 @@ a {
 /* .Icon_sidebar{
 
 } */
+
 @media screen and (max-width: 900px) {
   .Icon_sidebar{
     margin: 10px;

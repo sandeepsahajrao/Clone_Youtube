@@ -15,11 +15,13 @@ const Feed = () => {
         setvideos(data.items)
       )
     },[selectedCategery])
+
   return (
-    <Stack sx={{flexDirection:{sx:'column',md:'row'}}}>
+    <Stack  style={{overFlow:"auto"}}  sx={{flexDirection:{sx:'column',md:'row'}}}>
       <Box sx={
         {
-          height:{sx:'auto',md:'92vh'},
+          height:{sx:'auto',md:'92%', lg:'98%'},
+          
           borderRight:'1px solid #3d3d3d',
           px:{sx:0,md:2}
           }}>
@@ -31,7 +33,7 @@ const Feed = () => {
         © 2022 by Sandeep Sahajrao
         </Typography>
       </Box>
-      <Box p={2} sx={{overFlowY:"auto",height:"90vh",flex:'2'}}>
+      <Box p={2} sx={{flex:'2',height:'90vh'}}>
         <Typography fontWeight='bold' variant='h4' md={2} sx={{color:'white'}}>
           {selectedCategery} <span style={{color:"red"}}>Video</span>
         </Typography>

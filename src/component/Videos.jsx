@@ -1,17 +1,18 @@
 import React from 'react'
-import { FetchApi } from './FetchApi'
-import { Box } from '@mui/system'
-import { Stack } from '@mui/material'
+// import { FetchApi } from './FetchApi'
+
+import { Stack ,Box} from '@mui/material'
 import {VideoCard,ChannelCard} from './index'
 const Videos = ({videos}) => {
+  // console.log(videos)
   return(
-    <Stack direction='row' flexWrap='warp' justifyContent='start' gap='2'>
-      {videos.map((items,index)=>{
+    <Stack direction='row' flexWrap='wrap' justifyContent='start' gap='20px' borderRadius={'20px'} >
+      {videos.map((items,index)=>(
         <Box key={index}>
           {items.id.videoId && <VideoCard video={items}/>}
           {items.id.ChannelId && <ChannelCard channeldetails={items}/>}
         </Box>
-      })}
+      ))}
     </Stack>
   )
 }

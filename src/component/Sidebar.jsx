@@ -7,7 +7,7 @@ const Sidebar = ({selectedCategery,setselectedCategery}) => {
     // const [Nicon,updatenew]=useState(selectedCategery);
 
   return (
-    <Stack direction="row" sx={{overflowY:'auto',height:{sx:'auto',md:"95%"},flexDirection:{md:'column'}}}>
+    <Stack direction="row" gap={'20px'} sx={{overflowY:'auto',height:{sx:'auto',md:"90vh",lg:'90vh'},flexDirection:{md:'column'},gap:'20px'}}>
         {
             arr.map((ele,index)=>(
                 <button key={ele.name} className='Icon_sidebar' onClick={(()=>{
