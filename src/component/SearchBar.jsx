@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { Navigate } from 'react-router-dom';
 
 const SearchBar = () => {
+    const [search,setsearch]=useState('')
     return (
         <Paper component='form' onSubmit={()=>{} }
         sx={{
@@ -19,7 +20,7 @@ const SearchBar = () => {
                 mr: { sm: 5 },
                 height:'30px'
             }}>
-            <input className='searchBar' onChange={() => { }} placeholder="search...." value='' />
+            <input className='searchBar' onChange={(e) => { }} placeholder="search...." value='' />
 
             <IconButton type="submit" sx={{ p: "10px", color: "red" }}>
                 {/* <Search></Search> */}
