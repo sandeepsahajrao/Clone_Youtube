@@ -4,8 +4,8 @@ import { Paper, IconButton } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import { useState } from 'react';
 
-const SearchBar = () => (
-
+const SearchBar = () => {
+    return (
         <Paper component='form' onSubmit={()=>{} }
         sx={{
                 display:'flex',
@@ -26,6 +26,6 @@ const SearchBar = () => (
             </IconButton>
         </Paper>
     )
-
+}
 
 export default SearchBar
