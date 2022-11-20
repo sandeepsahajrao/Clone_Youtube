@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 import { useNavigate } from 'react-router-dom';
 
-const SearchBar = () => {
+const SearchBar = ({setsearch,searchTerm}) => {
     return (
         <Paper component='form' onSubmit={()=>{} }
         sx={{
@@ -27,7 +27,7 @@ const SearchBar = () => {
                 <SearchIcon />
             </IconButton>
         </Paper>
-    )
-
-
-export default SearchBar
+    )  
+                            }
+// export default SearchBar;
+export default SearchBar;
