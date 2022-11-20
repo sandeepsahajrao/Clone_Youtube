@@ -1,5 +1,5 @@
 export { default as Navbar } from './Navbar';
-export { default as VideoDtails } from './VideoDtails';
+export { default as VideoDetails } from './VideoDtails';
 export { default as ChannelDtails } from './ChannelDtails';
 export { default as Feed } from './Feed';
 export { default as SearchFeed } from './SearchFeed';
