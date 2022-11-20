@@ -1,7 +1,7 @@
 import React from 'react';
-import { useState,useEffect } from 'react';
-import { Box,Typography,Stack } from '@mui/material';
-import {Sidebar,Videos} from './index'
+import { useState, useEffect } from 'react';
+import { Box, Typography, Stack } from '@mui/material';
+import { Sidebar, Videos } from './index'
 import { FetchApi } from './FetchApi';
 
 
@@ -9,33 +9,35 @@ const Feed = () => {
   const [selectedCategery, setselectedCategery] = useState('New')
   const [videos, setvideos] = useState([])
 
-    useEffect(()=>{
-      FetchApi(`search?part=snippet&q=${selectedCategery}`)
-      .then((data)=>
+  useEffect(() => {
+    FetchApi(`search?part=snippet&q=${selectedCategery}`)
+      .then((data) =>
         setvideos(data.items)
       )
-    },[selectedCategery])
+  }, [selectedCategery])
 
   return (
-    <Stack  style={{overFlow:"auto"}}  sx={{flexDirection:{sx:'column',md:'row'}}}>
+    <Stack style={{ overFlow: "auto" }} sx={{ flexDirection: { sx: 'column', md: 'row' } }}>
       <Box sx={
         {
-          height:{sx:'auto',md:'92%', lg:'98%'},
-          
-          borderRight:'1px solid #3d3d3d',
-          px:{sx:0,md:2}
-          }}>
+          height: { sx: 'auto', md: '92%', lg: '98%' },
+
+          borderRight: '1px solid #3d3d3d',
+          px: { sx: 0, md: 2 }
+        }}>
         <Sidebar
-        selectedCategery={selectedCategery} setselectedCategery={setselectedCategery}
-        ></Sidebar>
-        
-        <Typography className='copyRight' variant='body2' sx={{mt:1.5,color:'#fff'}} >
-        © 2022 by Sandeep Sahajrao
+          selectedCategery={selectedCategery} setselectedCategery={setselectedCategery}
+        >
+
+        </Sidebar>
+
+        <Typography className='copyRight' variant='body2' sx={{ mt: 1.5, color: '#fff' }} >
+          © 2022 by Sandeep Sahajrao
         </Typography>
       </Box>
-      <Box p={2} sx={{flex:'2',height:'90vh'}}>
-        <Typography fontWeight='bold' variant='h4' md={2} sx={{color:'white'}}>
-          {selectedCategery} <span style={{color:"red"}}>Video</span>
+      <Box p={2} sx={{ flex: '2', height: '90vh' }}>
+        <Typography fontWeight='bold' variant='h4' md={2} sx={{ color: 'white' }}>
+          {selectedCategery} <span style={{ color: "red" }}>Video</span>
         </Typography>
         <Videos videos={videos}></Videos>
       </Box>

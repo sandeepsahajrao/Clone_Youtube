@@ -70,7 +70,10 @@ a {
   transition: all 0.3s ease;
   
 }
-
+.Navbar{
+  display: flex;
+  padding: 5px 0px;
+}
 .css-11d36y0{
   overflow: auto;
   height: auto;

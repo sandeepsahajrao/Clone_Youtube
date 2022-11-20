@@ -5,8 +5,8 @@ import SearchIcon from '@mui/icons-material/Search';
 import { useState } from 'react';
 import { Navigate } from 'react-router-dom';
 
-const SearchBar = () => {
-    return (
+const SearchBar = () => (
+
         <Paper component='form' onSubmit={()=>{} }
         sx={{
                 display:'flex',
@@ -27,6 +27,6 @@ const SearchBar = () => {
             </IconButton>
         </Paper>
     )
-}
+
 
 export default SearchBar
