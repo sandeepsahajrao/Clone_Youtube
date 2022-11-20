@@ -1,66 +1,38 @@
-import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import ReactPlayer from "react-player";
-import { Typography, Box, Stack } from "@mui/material";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import React from 'react';
+import { useState,useEffect } from 'react';
+import { Box,Typography,Stack } from '@mui/material';
+import { useParams,Link} from 'react-router-dom';
+import {Videos} from './index'
+import { FetchApi } from './FetchApi';
+import ReactPlayer from 'react-player'
 
-// import { Videos, Loader } from "./";
-// import {Videos} from './Videos';
-import Loader from './Loader';
-import Videos from './Videos'
-import { FetchApi } from "./FetchApi";
-// import { fetchFromAPI } from "../utils/fetchFromAPI";
 
 const VideoDtails = () => {
-  const [videoDetail, setVideoDetail] = useState(null);
-  const [videos, setVideos] = useState(null);
-  const { id } = useParams();
-
-  useEffect(() => {
+  const [videoDetails, setvideoDetails] = useState(null)
+  const {id}=useParams();
+  useEffect(()=>{
     FetchApi(`videos?part=snippet,statistics&id=${id}`)
-      .then((data) => setVideoDetail(data.items[0]))
-
-    FetchApi(`search?part=snippet&relatedToVideoId=${id}&type=video`)
-      .then((data) => setVideos(data.items))
-  }, [id]);
-
-  if(!videoDetail?.snippet) return <Loader/>;
-
-  const { snippet: { title, channelId, channelTitle }, statistics: { viewCount, likeCount } } = videoDetail;
-
+    .then((data)=>setvideoDetails(data.items[1]))
+  },[id]);
+  
+  // const {snippet}=videoDetails
+    // console.log(videoDetails.snippet)
   return (
-    <Box minHeight="95vh">
-      <Stack direction={{ xs: "column"}}>
-        <Box flex={1} sx={{width:"100%",sx:{display:'flex',alignItems:'center'}}} md={{width:'50%'}}>
-          <Box sx={{ width: "100%", position: "sticky", top: "86px" }}>
-            <ReactPlayer url={`https://www.youtube.com/watch?v=${id}`} className="react-player" controls />
-            <Typography color="#fff" variant="h5" fontWeight="bold" p={2}>
-              {title}
+    <Box minHeight={'95vh'}>
+      <Stack sx={{xs:'column',md:'row'}}>
+        <Box flex={1}>
+
+          <Box sx={{width:'100%',position:'sticky',top:'86px'}}>
+            <ReactPlayer url={`https://www.youtube.com/watch?v=${id}`} className='react-player'
+            controls />
+            <Typography variant='h5' >
+              {/* {snippet.title} */}
             </Typography>
-            <Stack direction="row" justifyContent="space-between" sx={{ color: "#fff" }} py={1} px={2} >
-              <Link to={`/channel/${channelId}`}>
-                <Typography variant="subtitle1" color="#fff" >
-                  {channelTitle}
-                  <CheckCircleIcon sx={{ fontSize: "12px", color: "gray", ml: "5px" }} />
-                </Typography>
-              </Link>
-              <Stack direction="row" gap="20px" alignItems="center">
-                <Typography variant="body1" sx={{ opacity: 0.7 }}>
-                  {parseInt(viewCount).toLocaleString()} views
-                </Typography>
-                <Typography variant="body1" sx={{ opacity: 0.7 }}>
-                  {parseInt(likeCount).toLocaleString()} likes
-                </Typography>
-              </Stack>
-            </Stack>
           </Box>
-        </Box>
-        <Box px={2} py={{ md: 1, xs: 5 }} justifyContent="center" alignItems="center" >
-          <Videos videos={videos} direction="column" />
         </Box>
       </Stack>
     </Box>
-  );
-};
+  )
+}
 
-export default VideoDtails;
+export default VideoDtails
